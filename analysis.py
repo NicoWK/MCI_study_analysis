@@ -1,6 +1,7 @@
 import pandas as pd
 from scipy import stats
 import matplotlib.pyplot as plt
+import os
 
 
 # Daten einlesen
@@ -19,6 +20,42 @@ def standardize_precision(precision_values):
 def normalize_precision(precision_values):
     return precision_values * 100
 
+def calculate_average_per_respondent(data):
+    # Gruppierung nach Probanden und Berechnung des Durchschnitts
+    return data.groupby(['Respondent'])[['Precision', 'Time']].mean().reset_index()
+
+
+def generate_statistics_per_respondent(group_with_music,group_without_music):
+    # rescale to 0-100
+    group_with_music['Precision'] = normalize_precision(group_with_music['Precision'])
+    group_without_music['Precision'] = normalize_precision(group_without_music['Precision'])
+
+    # statistics per respondent
+    statistics_with_music = group_with_music.groupby('Respondent').agg({
+        'Precision': ['mean', 'median', 'std'],
+        'Time': ['mean', 'median', 'std']
+    }).reset_index()
+
+    statistics_without_music = group_without_music.groupby('Respondent').agg({
+        'Precision': ['mean', 'median', 'std'],
+        'Time': ['mean', 'median', 'std']
+    }).reset_index()
+
+    print("Statistics without Music:")
+    print(statistics_without_music)
+    print("Statistics with Music:")
+    print(statistics_with_music)
+
+    # Inferential statistics (t-test for Normalized Precision-value and effect size)
+    t_stat, p_value = stats.ttest_ind(group_with_music['Precision'], group_without_music['Precision'])
+    effect_size = (statistics_with_music['Precision']['mean'].mean() - statistics_without_music['Precision'][
+        'mean'].mean()) / statistics_without_music['Precision']['std'].mean()
+
+    print(f'Inferential Statistics:\n'
+          f'T-statistic: {t_stat}\n'
+          f'P-value: {p_value}\n'
+          f'Effect Size (Cohen\'s d): {effect_size}\n')
+
 # Descriptive statistics
 def generate_statistics(group_with_music, group_without_music):
 
@@ -29,20 +66,9 @@ def generate_statistics(group_with_music, group_without_music):
     group_with_music['Precision'] = normalize_precision(group_with_music['Precision'])
     group_without_music['Precision'] = normalize_precision(group_without_music['Precision'])
 
-    # statistics per respondent
-    # statistics_with_music = group_with_music.groupby('Respondent').agg({
-    #     'Precision': ['mean', 'median', 'std'],
-    #     'Time': ['mean', 'median', 'std']
-    # }).reset_index()
-    #
-    # statistics_without_music = group_without_music.groupby('Respondent').agg({
-    #     'Precision': ['mean', 'median', 'std'],
-    #     'Time': ['mean', 'median', 'std']
-    # }).reset_index()
-    # 
-    # # Inferential statistics (t-test for Normalized Precision-value and effect size)
-    # t_stat, p_value = stats.ttest_ind(group_with_music['Precision'], group_without_music['Precision'])
-    # effect_size = (statistics_with_music['Precision']['mean'].mean() - statistics_without_music['Precision']['mean'].mean()) / statistics_without_music['Precision']['std'].mean()
+    # Average per Respondent
+    group_with_music = calculate_average_per_respondent(group_with_music)
+    group_without_music = calculate_average_per_respondent(group_without_music)
 
     mean_precision_with_music = group_with_music['Precision'].mean()
     median_precision_with_music = group_with_music['Precision'].median()
@@ -94,6 +120,17 @@ def generate_statistics(group_with_music, group_without_music):
     plt.ylabel('Time (s)')
 
     plt.tight_layout()
+
+    # save the plot
+    plot_dir = 'plots'  # directory to safe the plot
+    # check dir exists, if not make dir
+    if not os.path.exists(plot_dir):
+        os.makedirs(plot_dir)
+
+    # save the plot as png in dir
+    plot_filename = os.path.join(plot_dir, 'statistics.png')
+    plt.savefig(plot_filename)
+
     plt.show()
 
     # Print out Results

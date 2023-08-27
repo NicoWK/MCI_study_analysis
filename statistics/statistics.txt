@@ -1,0 +1,307 @@
+
+
+---------- Descriptive stats for Precision with music ------------
+
+
+count     8.000000
+mean     67.020417
+std      11.976318
+min      50.570000
+25%      57.676667
+50%      68.223333
+75%      76.738333
+max      82.546667
+Name: Precision, dtype: float64
+
+
+---------- Descriptive stats for Precision without music ------------
+
+
+count     7.000000
+mean     58.121905
+std       8.368541
+min      49.333333
+25%      52.325000
+50%      55.680000
+75%      62.041667
+max      73.106667
+Name: Precision, dtype: float64
+
+
+---------- Descriptive stats for Time with music ------------
+
+
+count     8.000000
+mean     11.006667
+std       5.412733
+min       3.608333
+25%       6.707250
+50%      12.056500
+75%      13.957500
+max      19.422333
+Name: Time, dtype: float64
+
+
+---------- Descriptive stats for Time without music ------------
+
+
+count     7.000000
+mean      7.312286
+std       2.655730
+min       4.022000
+25%       6.081667
+50%       6.468333
+75%       8.508000
+max      11.516333
+Name: Time, dtype: float64
+
+
+---------- Descriptive Stats Questionnaire with music ------------
+
+
+Column: Competence
+count    8.000000
+mean     4.000000
+std      0.667618
+min      3.400000
+25%      3.550000
+50%      3.700000
+75%      4.400000
+max      5.000000
+Name: Competence, dtype: float64
+
+
+Column: Sensory_and_Imaginative_Immersion
+count    8.000000
+mean     3.687500
+std      0.813758
+min      2.666667
+25%      2.916667
+50%      3.916667
+75%      4.208333
+max      4.833333
+Name: Sensory_and_Imaginative_Immersion, dtype: float64
+
+
+Column: Flow
+count    8.000000
+mean     3.700000
+std      0.748331
+min      2.400000
+25%      3.350000
+50%      3.600000
+75%      4.400000
+max      4.600000
+Name: Flow, dtype: float64
+
+
+Column: Tension_Annoyance
+count    8.000000
+mean     1.500000
+std      0.563436
+min      1.000000
+25%      1.000000
+50%      1.333333
+75%      1.833333
+max      2.333333
+Name: Tension_Annoyance, dtype: float64
+
+
+Column: Challenge
+count    8.00
+mean     3.10
+std      0.80
+min      2.20
+25%      2.65
+50%      3.00
+75%      3.35
+max      4.60
+Name: Challenge, dtype: float64
+
+
+Column: Negative_Affect
+count    8.000000
+mean     1.281250
+std      0.281498
+min      1.000000
+25%      1.000000
+50%      1.250000
+75%      1.500000
+max      1.750000
+Name: Negative_Affect, dtype: float64
+
+
+Column: Positive_Affect
+count    8.000000
+mean     4.400000
+std      0.440779
+min      3.800000
+25%      4.100000
+50%      4.500000
+75%      4.650000
+max      5.000000
+Name: Positive_Affect, dtype: float64
+
+
+
+
+---------- Descriptive Stats Questionnaire with music ------------
+
+
+Column: Competence
+count    7.000000
+mean     3.742857
+std      0.660447
+min      2.600000
+25%      3.600000
+50%      3.600000
+75%      4.000000
+max      4.800000
+Name: Competence, dtype: float64
+
+
+Column: Sensory_and_Imaginative_Immersion
+count    7.000000
+mean     3.619048
+std      0.797649
+min      2.333333
+25%      3.166667
+50%      4.000000
+75%      4.166667
+max      4.333333
+Name: Sensory_and_Imaginative_Immersion, dtype: float64
+
+
+Column: Flow
+count    7.000000
+mean     3.457143
+std      0.861892
+min      2.400000
+25%      2.800000
+50%      3.400000
+75%      4.000000
+max      4.800000
+Name: Flow, dtype: float64
+
+
+Column: Tension_Annoyance
+count    7.000000
+mean     1.809524
+std      0.539449
+min      1.000000
+25%      1.500000
+50%      2.000000
+75%      2.000000
+max      2.666667
+Name: Tension_Annoyance, dtype: float64
+
+
+Column: Challenge
+count    7.000000
+mean     3.085714
+std      0.839501
+min      1.800000
+25%      2.600000
+50%      3.400000
+75%      3.700000
+max      3.800000
+Name: Challenge, dtype: float64
+
+
+Column: Negative_Affect
+count    7.000000
+mean     1.250000
+std      0.353553
+min      1.000000
+25%      1.000000
+50%      1.000000
+75%      1.500000
+max      1.750000
+Name: Negative_Affect, dtype: float64
+
+
+Column: Positive_Affect
+count    7.000000
+mean     4.314286
+std      0.620292
+min      3.000000
+25%      4.300000
+50%      4.400000
+75%      4.700000
+max      4.800000
+Name: Positive_Affect, dtype: float64
+
+
+
+
+---------- T-Test for Precision and Time ------------
+
+
+Independent t-Tests:
+Test for Precision - T-statistic: 1.6426644975362623, P-value: 0.12440790341774641
+Test for Time - T-statistic: 1.636292110269912, P-value: 0.1257461976829545
+
+
+
+
+---------- ANOVA Game Experience Questionnaire ------------
+
+
+Variable: Competence
+F-statistic: 0.5593625498007967, P-value: 0.4678318292155039
+
+Variable: Sensory_and_Imaginative_Immersion
+F-statistic: 0.02690374195567547, P-value: 0.8722352780752016
+
+Variable: Flow
+F-statistic: 0.3417007730786724, P-value: 0.5688555775866955
+
+Variable: Tension_Annoyance
+F-statistic: 1.1717333333333328, P-value: 0.29871558323467695
+
+Variable: Challenge
+F-statistic: 0.0011373578302712158, P-value: 0.9736089702226443
+
+Variable: Negative_Affect
+F-statistic: 0.03632734530938123, P-value: 0.8517853076471162
+
+Variable: Positive_Affect
+F-statistic: 0.09719626168224275, P-value: 0.7601641944869779
+
+
+
+
+
+
+---------- Correlation ------------
+
+
+Correlation Analysis between GEQ Components and Precision:
+Variable: Competence
+Correlation with Music: 0.5318489059776207
+Correlation without Music: -0.9969432851754619
+
+Variable: Sensory_and_Imaginative_Immersion
+Correlation with Music: -0.08672575868379534
+Correlation without Music: -0.036744292768514944
+
+Variable: Flow
+Correlation with Music: 0.6734390657391187
+Correlation without Music: -0.017720411200437235
+
+Variable: Tension_Annoyance
+Correlation with Music: -0.8228227156941138
+Correlation without Music: 0.07812865123344791
+
+Variable: Challenge
+Correlation with Music: -0.13865525902288495
+Correlation without Music: -0.230094620823971
+
+Variable: Negative_Affect
+Correlation with Music: 0.496650706383346
+Correlation without Music: 0.4308102458561505
+
+Variable: Positive_Affect
+Correlation with Music: 0.2998319187453833
+Correlation without Music: -0.5462201051581534
+

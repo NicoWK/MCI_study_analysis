@@ -302,6 +302,7 @@ def correlation(group_with_music, group_without_music, group_with_music_question
 
     # Show plot
     plt.tight_layout()
+    plt.savefig("statistics/correlation_plot.png")
     plt.show()
 
     return correlation_results

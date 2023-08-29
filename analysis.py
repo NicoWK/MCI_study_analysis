@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from scipy import stats
 import matplotlib.pyplot as plt
@@ -241,20 +242,66 @@ def anova_questionnaire(group_with_music_questionnaire, group_without_music_ques
     return anova_results
 
 
-def correlation(group_with_music, group_without_music, group_with_music_questionnaire, group_without_music_questionnaire):
+def correlation(group_with_music, group_without_music, group_with_music_questionnaire,
+                group_without_music_questionnaire):
     print("\n\n---------- Correlation ------------\n\n")
+
     # Perform correlation analyses
     correlation_results = {}
     for column in group_with_music_questionnaire.columns:
-        correlation_with_music = group_with_music_questionnaire[column].corr(group_with_music['Precision'])
-        correlation_without_music = group_without_music_questionnaire[column].corr(group_without_music['Precision'])
-        correlation_results[column] = {'Correlation with Music': correlation_with_music,
-                                       'Correlation without Music': correlation_without_music}
+        correlation_with_music_precision = group_with_music_questionnaire[column].corr(group_with_music['Precision'])
+        correlation_without_music_precision = group_without_music_questionnaire[column].corr(
+            group_without_music['Precision'])
+        correlation_with_music_time = group_with_music_questionnaire[column].corr(group_with_music['Time'])
+        correlation_without_music_time = group_without_music_questionnaire[column].corr(group_without_music['Time'])
+
+        correlation_results[column] = {
+            'Correlation with Music (Precision)': correlation_with_music_precision,
+            'Correlation without Music (Precision)': correlation_without_music_precision,
+            'Correlation with Music (Time)': correlation_with_music_time,
+            'Correlation without Music (Time)': correlation_without_music_time
+        }
 
     # Output results
-    print("Correlation Analysis between GEQ Components and Precision:")
+    print("Correlation Analysis between GEQ Components, Precision, and Time:")
     for column, result in correlation_results.items():
         print(f'Variable: {column}')
-        print(f'Correlation with Music: {result["Correlation with Music"]}')
-        print(f'Correlation without Music: {result["Correlation without Music"]}\n')
+        print(f'Correlation with Music (Precision): {result["Correlation with Music (Precision)"]}')
+        print(f'Correlation without Music (Precision): {result["Correlation without Music (Precision)"]}')
+        print(f'Correlation with Music (Time): {result["Correlation with Music (Time)"]}')
+        print(f'Correlation without Music (Time): {result["Correlation without Music (Time)"]}\n')
+
+    # Plot correlations as a heatmap
+    columns = list(correlation_results.keys())
+    correlations_precision = np.array([
+        [result['Correlation with Music (Precision)'], result['Correlation without Music (Precision)']]
+        for result in correlation_results.values()
+    ])
+
+    correlations_time = np.array([
+        [result['Correlation with Music (Time)'], result['Correlation without Music (Time)']]
+        for result in correlation_results.values()
+    ])
+
+    fig, ax = plt.subplots(1, 2, figsize=(16, 8))  # Breiteres Plot-Fenster mit zwei Subplots
+
+    im_precision = ax[0].imshow(correlations_precision, cmap='coolwarm')
+    im_time = ax[1].imshow(correlations_time, cmap='coolwarm')
+
+    # Set labels and ticks
+    for ax_idx, im, title in zip([0, 1], [im_precision, im_time], ['Precision', 'Time']):
+        ax[ax_idx].set_xticks([0, 1])
+        ax[ax_idx].set_yticks(range(len(columns)))
+        ax[ax_idx].set_xticklabels(['With Music', 'Without Music'])
+        ax[ax_idx].set_yticklabels(columns)
+        ax[ax_idx].set_title(f'Correlations between GEQ Components and {title}')
+
+        # Add colorbar
+        cbar = ax[ax_idx].figure.colorbar(im, ax=ax[ax_idx])
+        cbar.ax.set_ylabel('Correlation', rotation=-90, va='bottom')
+
+    # Show plot
+    plt.tight_layout()
+    plt.show()
+
     return correlation_results

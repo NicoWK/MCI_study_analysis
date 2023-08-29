@@ -276,32 +276,46 @@ F-statistic: 0.09719626168224275, P-value: 0.7601641944869779
 ---------- Correlation ------------
 
 
-Correlation Analysis between GEQ Components and Precision:
+Correlation Analysis between GEQ Components, Precision, and Time:
 Variable: Competence
-Correlation with Music: 0.5318489059776207
-Correlation without Music: -0.9969432851754619
+Correlation with Music (Precision): 0.5318489059776207
+Correlation without Music (Precision): -0.9969432851754619
+Correlation with Music (Time): 0.1755175150752891
+Correlation without Music (Time): 0.31596200815178216
 
 Variable: Sensory_and_Imaginative_Immersion
-Correlation with Music: -0.08672575868379534
-Correlation without Music: -0.036744292768514944
+Correlation with Music (Precision): -0.08672575868379534
+Correlation without Music (Precision): -0.036744292768514944
+Correlation with Music (Time): 0.593495835445822
+Correlation without Music (Time): 0.9787525817838808
 
 Variable: Flow
-Correlation with Music: 0.6734390657391187
-Correlation without Music: -0.017720411200437235
+Correlation with Music (Precision): 0.6734390657391187
+Correlation without Music (Precision): -0.017720411200437235
+Correlation with Music (Time): 0.1634078910103477
+Correlation without Music (Time): 0.974673321805819
 
 Variable: Tension_Annoyance
-Correlation with Music: -0.8228227156941138
-Correlation without Music: 0.07812865123344791
+Correlation with Music (Precision): -0.8228227156941138
+Correlation without Music (Precision): 0.07812865123344791
+Correlation with Music (Time): 0.057423613501588935
+Correlation without Music (Time): 0.9487718426495875
 
 Variable: Challenge
-Correlation with Music: -0.13865525902288495
-Correlation without Music: -0.230094620823971
+Correlation with Music (Precision): -0.13865525902288495
+Correlation without Music (Precision): -0.230094620823971
+Correlation with Music (Time): -0.09147197085142979
+Correlation without Music (Time): 0.9999385379790239
 
 Variable: Negative_Affect
-Correlation with Music: 0.496650706383346
-Correlation without Music: 0.4308102458561505
+Correlation with Music (Precision): 0.496650706383346
+Correlation without Music (Precision): 0.4308102458561505
+Correlation with Music (Time): -0.22655358153820662
+Correlation without Music (Time): -0.9796415222058058
 
 Variable: Positive_Affect
-Correlation with Music: 0.2998319187453833
-Correlation without Music: -0.5462201051581534
+Correlation with Music (Precision): 0.2998319187453833
+Correlation without Music (Precision): -0.5462201051581534
+Correlation with Music (Time): -0.22849327701830388
+Correlation without Music (Time): 0.9445473439716174
 
